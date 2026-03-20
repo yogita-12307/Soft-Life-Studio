@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Soft Life Studio</title>
+    <meta name="description" content="Soft Life Studio - Curating beautiful spaces, aesthetic lifestyle inspiration, and effortless home decor." />
+    <meta name="keywords" content="soft lifestyle, aesthetic decor, minimal living, pinterest room ideas, home decor, lifestyle blog" />
+    <meta name="google-site-verification" content="your_verification_string_here" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#fdfbf7',
+                        foreground: '#332b26',
+                        primary: '#b8867c',
+                        primaryFg: '#fdfbf7',
+                        secondary: '#8a9a86',
+                        muted: '#eadecd',
+                        mutedFg: '#857a70',
+                        border: '#e8ded5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground min-h-screen flex flex-col antialiased">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-md">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold tracking-tight text-foreground">Soft Life Studio</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">Home</a>
+                <a href="blog.html" class="text-sm font-medium transition-colors text-primary">Inspiration</a>
+                <a href="finds.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">Curated Finds</a>
+                <a href="about.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">About</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-foreground p-2">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="md:hidden bg-background overflow-hidden transition-all duration-300 hidden" style="max-height: 0; opacity: 0;">
+            <nav class="flex flex-col container mx-auto px-4 py-4 gap-4 border-t border-border">
+                <a href="index.html" class="text-lg font-medium text-foreground hover:text-primary transition-colors">Home</a>
+                <a href="blog.html" class="text-lg font-medium text-primary">Inspiration</a>
+                <a href="finds.html" class="text-lg font-medium text-foreground hover:text-primary transition-colors">Curated Finds</a>
+                <a href="about.html" class="text-lg font-medium text-foreground hover:text-primary transition-colors">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <div class="container mx-auto px-4 py-16 md:py-24 fade-in-up">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">Inspiration Board</h1>
+                <p class="text-mutedFg text-lg">Curated ideas, styling tips, and interior inspiration to help you live the soft life.</p>
+            </div>
+
+            <!-- Categories Pill Nav -->
+            <div class="flex overflow-x-auto pb-6 mb-12 hide-scrollbar justify-start md:justify-center gap-3 fade-in-up transition-all delay-100">
+                <button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-secondary text-white font-medium border border-transparent text-sm">All</button>
+                <button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white hover:bg-muted text-foreground font-medium transition-colors border border-border/50 text-sm">Aesthetic Room Ideas</button>
+                <button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white hover:bg-muted text-foreground font-medium transition-colors border border-border/50 text-sm">Home Decor Finds</button>
+                <button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white hover:bg-muted text-foreground font-medium transition-colors border border-border/50 text-sm">Amazon Decor</button>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div id="dynamic-blog-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"></div>
+        </div>
+    </main>
+
+     <!-- Footer -->
+    <footer class="bg-white border-t border-border mt-10">
+        <div class="container mx-auto px-4 py-12 md:py-16">
+            <div class="border-t border-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-mutedFg gap-4 text-center md:text-left">
+                <p>&copy; 2026 Soft Life Studio. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="index.html" class="hover:text-primary">Home</a>
+                    <a href="about.html" class="hover:text-primary">About</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="blog-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

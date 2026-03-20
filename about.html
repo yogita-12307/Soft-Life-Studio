@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Soft Life Studio</title>
+    <meta name="description" content="Soft Life Studio - Curating beautiful spaces, aesthetic lifestyle inspiration, and effortless home decor." />
+    <meta name="keywords" content="soft lifestyle, aesthetic decor, minimal living, pinterest room ideas, home decor, lifestyle blog" />
+    <meta name="google-site-verification" content="your_verification_string_here" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#fdfbf7', foreground: '#332b26',
+                        primary: '#b8867c', primaryFg: '#fdfbf7',
+                        secondary: '#8a9a86', muted: '#eadecd',
+                        mutedFg: '#857a70', border: '#e8ded5',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'], }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground min-h-screen flex flex-col antialiased">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-md">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold tracking-tight text-foreground">Soft Life Studio</span>
+            </a>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">Home</a>
+                <a href="blog.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">Inspiration</a>
+                <a href="finds.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">Curated Finds</a>
+                <a href="about.html" class="text-sm font-medium transition-colors text-primary">About</a>
+            </nav>
+            <!-- Mobile Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-foreground p-2">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="md:hidden bg-background overflow-hidden transition-all duration-300 hidden" style="max-height: 0; opacity: 0;">
+            <nav class="flex flex-col container mx-auto px-4 py-4 gap-4 border-t border-border">
+                <a href="index.html" class="text-lg font-medium text-foreground hover:text-primary transition-colors">Home</a>
+                <a href="blog.html" class="text-lg font-medium text-foreground hover:text-primary transition-colors">Inspiration</a>
+                <a href="finds.html" class="text-lg font-medium text-foreground hover:text-primary transition-colors">Curated Finds</a>
+                <a href="about.html" class="text-lg font-medium text-primary">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow fade-in-up">
+        <div class="max-w-4xl mx-auto px-4 py-16 md:py-24">
+            <!-- Header -->
+            <div class="text-center mb-16 fade-in-up transition-all delay-100">
+                <h1 class="font-serif text-5xl md:text-6xl font-bold mb-6">Embracing the Soft Life</h1>
+                <p class="text-xl text-mutedFg font-light max-w-2xl mx-auto">
+                    Helping people create cozy, aesthetic, and stylish spaces while embracing the soft life lifestyle.
+                </p>
+            </div>
+
+            <!-- Story Section -->
+            <div class="space-y-16 fade-in-up transition-all delay-300">
+                <img src="./images/hero_lifestyle_1773683461197.png" alt="Soft Life Studio aesthetics" loading="lazy" class="w-full rounded-3xl aspect-video object-cover">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="font-serif text-3xl font-bold mb-4">Our Brand Concept</h2>
+                        <div class="space-y-4 text-mutedFg leading-relaxed">
+                            <p>
+                                Soft Life Studio is a curated lifestyle brand focused on aesthetic home decor, cozy interiors, and fashionable lifestyle products. Born from a love for Pinterest aesthetics and minimalist design, we aim to inspire everyday beautiful living.
+                            </p>
+                            <p>
+                                We believe that your space should be your sanctuary—a place of warmth, calm, and effortless style. Our curations blend luxury neutrals, modern shapes, and natural textures to help you design a life that feels as good as it looks.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="./images/aesthetic_bedroom_1773683476544.png" alt="Bedroom detail" loading="lazy" class="rounded-2xl w-full h-full object-cover aspect-square">
+                        <img src="./images/desk_setup_1773683492574.png" alt="Desk detail" loading="lazy" class="rounded-2xl w-full h-full object-cover aspect-square mt-8">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manifesto/Values -->
+            <div class="mt-24 pt-16 border-t border-border fade-in-up transition-all delay-300">
+                <div class="text-center mb-12">
+                     <h2 class="font-serif text-3xl font-bold">The Soft Life Aesthetic</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl text-center border border-border">
+                        <h3 class="font-serif text-xl font-semibold mb-3">Cozy Living</h3>
+                        <p class="text-mutedFg text-sm leading-relaxed">Prioritizing comfort without sacrificing style through soft textiles and warm environments.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl text-center border border-border">
+                        <h3 class="font-serif text-xl font-semibold mb-3">Minimal Decor</h3>
+                        <p class="text-mutedFg text-sm leading-relaxed">Curating intentional spaces where every piece has a purpose and brings joy.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl text-center border border-border">
+                        <h3 class="font-serif text-xl font-semibold mb-3">Effortless Style</h3>
+                        <p class="text-mutedFg text-sm leading-relaxed">Achieving a high-end, premium look with neutral palettes and subtle design choices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-border mt-10">
+        <div class="container mx-auto px-4 py-12 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="inline-block mb-4">
+                        <span class="font-serif text-2xl font-bold text-foreground">Soft Life Studio</span>
+                    </a>
+                    <p class="text-mutedFg max-w-sm mb-6">
+                        Curating beautiful spaces and effortless style for the modern soft girl era. Find inspiration for your home, lifestyle, and aesthetic living.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="9" y2="22"/><circle cx="12" cy="5" r="3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-foreground mb-4">Categories</h4>
+                    <ul class="space-y-3">
+                        <li><a href="finds.html" class="text-mutedFg hover:text-primary transition-colors">Cozy Bedroom</a></li>
+                        <li><a href="finds.html" class="text-mutedFg hover:text-primary transition-colors">Desk Setups</a></li>
+                        <li><a href="blog.html" class="text-mutedFg hover:text-primary transition-colors">Living Room Ideas</a></li>
+                        <li><a href="finds.html" class="text-mutedFg hover:text-primary transition-colors">Amazon Home Finds</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-foreground mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-mutedFg hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-mutedFg hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="privacy.html" class="text-mutedFg hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-mutedFg gap-4 text-center md:text-left">
+                <p>&copy; 2026 Soft Life Studio. All rights reserved.</p>
+                <p class="max-w-xl">
+                    <strong>Affiliate Disclosure:</strong> Soft Life Studio is a participant in various affiliate advertising programs. We may earn a commission on qualifying purchases made through our links.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="blog-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
