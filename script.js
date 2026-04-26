@@ -54,14 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render Logic
     const { products, posts } = window.blogData || { products: [], posts: [] };
+    const sanitizeUrl = (url, fallback) => {
+        if (typeof url !== 'string') return fallback;
+        const trimmed = url.trim();
+        return trimmed.length > 0 ? trimmed : fallback;
+    };
 
     window.createProductCard = (product) => {
-        const linkHref = product.isAffiliate ? product.link : `article.html?slug=${product.id}`;
+        const internalLink = `article.html?slug=${encodeURIComponent(product.id || '')}`;
+        const linkHref = product.isAffiliate
+            ? sanitizeUrl(product.link, 'finds.html')
+            : sanitizeUrl(internalLink, 'finds.html');
         const externalAttrs = product.isAffiliate ? `target="_blank" rel="nofollow sponsored noopener"` : '';
         const ctaHtml = product.isAffiliate 
             ? `<div class="mt-2 w-full py-2.5 bg-foreground text-background text-sm font-medium rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                 Shop Now
+                 View on Amazon
                </div>`
             : `<span class="text-sm font-medium text-mutedFg hover:text-primary flex items-center gap-1 group/link mt-1 w-max">
                  View Details 
@@ -69,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                </span>`;
 
         return `
-            <div class="group flex flex-col gap-3 fade-in-up masonry-item h-full">
+            <div class="group card-lift flex flex-col gap-3 fade-in-up masonry-item h-full">
                 <a href="${linkHref}" ${externalAttrs} class="block relative overflow-hidden rounded-2xl aspect-[4/5] bg-muted">
                     <img src="${product.image}" alt="${product.title}" loading="lazy" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -90,12 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.createPostCard = (post, aspectClass = "aspect-[3/4]") => {
+        const postHref = sanitizeUrl(`article.html?slug=${encodeURIComponent(post.slug || '')}`, 'blog.html');
         return `
-            <a href="article.html?slug=${post.slug}" class="relative group overflow-hidden rounded-[2rem] bg-muted w-full block ${aspectClass} fade-in-up masonry-item mb-6">
+            <a href="${postHref}" class="relative group card-lift overflow-hidden rounded-[2rem] bg-muted w-full block ${aspectClass} fade-in-up masonry-item mb-6">
                 <img src="${post.image}" alt="${post.title}" loading="lazy" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">
-                    <span class="text-white/80 text-xs font-medium tracking-wider uppercase mb-2 bg-white/10 w-max px-3 py-1 rounded-full backdrop-blur-sm">${post.category}</span>
+                    <span class="text-white/80 text-xs font-medium tracking-wider uppercase mb-3 bg-white/10 w-max px-3 py-1 rounded-full backdrop-blur-sm">${post.category}</span>
                     <h3 class="text-white font-serif text-xl md:text-2xl font-bold leading-tight group-hover:underline">${post.title}</h3>
+                    <span class="mt-4 inline-flex items-center gap-2 w-max bg-white/90 text-foreground text-xs md:text-sm font-semibold px-4 py-2 rounded-full opacity-90 group-hover:opacity-100 transition-opacity">
+                        View More
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
                 </div>
             </a>
         `;
@@ -128,9 +141,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Article Page Dynamic Hydration
     if (window.location.pathname.includes('article.html')) {
         const urlParams = new URLSearchParams(window.location.search);
-        const slug = urlParams.get('slug') || posts[0]?.slug;
+        const slug = urlParams.get('slug');
 
         const currentPost = posts.find(p => p.slug === slug);
+        
+        if (!currentPost) {
+            document.title = "Not Found - Soft Life Studio";
+            const titleObj = document.getElementById('article-title');
+            if (titleObj) titleObj.innerText = "Curated Look Not Found";
+            const contentObj = document.getElementById('article-content');
+            if (contentObj) contentObj.innerHTML = "<p>We couldn't find the exact page or products you were looking for. Please return to the homepage to explore more curations.</p>";
+            
+            const authorMeta = document.getElementById('article-author-name');
+            if (authorMeta && authorMeta.closest('.border-y')) {
+                authorMeta.closest('.border-y').style.display = 'none';
+            }
+            return;
+        }
+
         if (currentPost) {
             // Scroll to top
             window.scrollTo(0, 0);
@@ -154,18 +182,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Content
             const contentObj = document.getElementById('article-content');
-            if (contentObj) {
-                let html = '';
-                currentPost.content.forEach((block, index) => {
-                    if (block.startsWith('## ')) {
-                        html += `<h3 class="font-serif text-2xl font-bold text-foreground mt-12 mb-6">${block.replace('## ', '')}</h3>`;
-                    } else if (index === 0) {
-                        html += `<p class="text-xl text-foreground font-medium leading-relaxed">${block}</p>`;
-                    } else {
-                        html += `<p>${block}</p>`;
-                    }
-                });
-                contentObj.innerHTML = html;
+            if (currentPost.content && currentPost.content.length > 0) {
+                if (contentObj) {
+                    let html = '';
+                    currentPost.content.forEach((block, index) => {
+                        if (block.startsWith('## ')) {
+                            html += `<h3 class="font-serif text-2xl font-bold text-foreground mt-12 mb-6">${block.replace('## ', '')}</h3>`;
+                        } else if (index === 0) {
+                            html += `<p class="text-xl text-foreground font-medium leading-relaxed">${block}</p>`;
+                        } else {
+                            html += `<p>${block}</p>`;
+                        }
+                    });
+                    contentObj.innerHTML = html;
+                }
+            } else {
+                // UX Improvement for Shop The Look: remove excessive space
+                if (contentObj) contentObj.style.display = 'none';
+                const authorMeta = document.getElementById('article-author-name');
+                if (authorMeta && authorMeta.closest('.border-y')) {
+                    authorMeta.closest('.border-y').style.display = 'none';
+                }
             }
 
             // Products
@@ -173,13 +210,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const shopSection = document.getElementById('article-shop-section');
                 const productsGrid = document.getElementById('article-related-products');
                 if (shopSection && productsGrid) {
-                    const matchedProducts = currentPost.relatedProductIds
-                        .map(id => products.find(p => p.id === id))
-                        .filter(Boolean);
+                    const itemsHtml = currentPost.relatedProductIds.map(id => {
+                        const p = products.find(prod => prod.id === id);
+                        if (!p || (!p.link && p.isAffiliate)) {
+                            return `<div class="p-6 bg-muted/20 rounded-2xl flex flex-col items-center justify-center text-center border border-border/50 text-mutedFg aspect-[4/5] h-full gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                <span class="text-sm">Product currently unavailable</span>
+                            </div>`;
+                        }
+                        return window.createProductCard(p);
+                    }).join('');
                     
-                    if (matchedProducts.length > 0) {
+                    if (itemsHtml) {
                         shopSection.classList.remove('hidden');
-                        productsGrid.innerHTML = matchedProducts.map(p => window.createProductCard(p)).join('');
+                        productsGrid.innerHTML = itemsHtml;
                     }
                 }
             }
@@ -201,13 +245,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (matchedPosts.length > 0) {
                         postSection.classList.remove('hidden');
                         relatedGrid.innerHTML = matchedPosts.map(p => `
-                            <a href="article.html?slug=${p.slug}" class="group flex flex-col gap-4">
+                            <a href="${sanitizeUrl(`article.html?slug=${encodeURIComponent(p.slug || '')}`, 'blog.html')}" class="group card-lift flex flex-col gap-4">
                                 <div class="relative overflow-hidden rounded-2xl aspect-[3/2] bg-muted">
                                     <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                                 </div>
                                 <div>
                                     <span class="text-xs font-medium text-primary tracking-wider uppercase mb-2 block">${p.category}</span>
                                     <h5 class="font-serif text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">${p.title}</h5>
+                                    <span class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                                        View More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                    </span>
                                 </div>
                             </a>
                         `).join('');

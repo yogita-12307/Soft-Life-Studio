@@ -20,10 +20,10 @@
             theme: {
                 extend: {
                     colors: {
-                        background: '#fdfbf7', foreground: '#332b26',
-                        primary: '#b8867c', primaryFg: '#fdfbf7',
-                        secondary: '#8a9a86', muted: '#eadecd',
-                        mutedFg: '#857a70', border: '#e8ded5',
+                        background: '#fff7f0', foreground: '#2d2420',
+                        primary: '#c86f5f', primaryFg: '#fffaf7',
+                        secondary: '#6d9b7c', muted: '#f4e4d8',
+                        mutedFg: '#6a5349', border: '#e4cbb9',
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'], }
                 }
@@ -65,28 +65,57 @@
             <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">Get In Touch</h1>
             <p class="text-lg text-mutedFg mb-12">We'd love to hear from you. Reach out for collaborations, inquiries, or just to say hello.</p>
             
-            <form class="space-y-6 text-left max-w-xl mx-auto" onsubmit="event.preventDefault();">
+            <div id="form-success-message" class="hidden p-8 bg-primary/10 border border-primary/20 rounded-2xl flex-col items-center justify-center text-center gap-4 mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" class="text-primary" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-foreground mb-2">Message received successfully!</h3>
+                    <p class="text-mutedFg">Thanks for reaching out. We'll get back to you shortly.</p>
+                </div>
+            </div>
+
+            <form id="contact-form" action="https://formspree.io/f/mwvwozvd" method="POST" class="space-y-6 text-left max-w-xl mx-auto" onsubmit="const btn = this.querySelector('button'); btn.disabled = true; btn.classList.add('opacity-75', 'cursor-not-allowed'); btn.innerText = 'Sending...';">
+                <input type="hidden" name="_subject" value="New Contact Inquiry via Soft Life Studio">
+                <input type="hidden" name="_redirect" value="contact.html?success=true">
+                <input type="text" name="_gotcha" style="display:none">
+                
                 <div class="space-y-2">
-                    <label class="text-sm font-medium text-foreground">Name</label>
-                    <input type="text" class="w-full px-4 py-3 rounded-xl border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Your name">
+                    <label for="name" class="text-sm font-medium text-foreground">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans" placeholder="Your name">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-sm font-medium text-foreground">Email</label>
-                    <input type="email" class="w-full px-4 py-3 rounded-xl border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="your@email.com">
+                    <label for="email" class="text-sm font-medium text-foreground">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans" placeholder="your@email.com">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-sm font-medium text-foreground">Message</label>
-                    <textarea class="w-full min-h-[150px] px-4 py-3 rounded-xl border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="How can we help?"></textarea>
+                    <label for="message" class="text-sm font-medium text-foreground">Message</label>
+                    <textarea id="message" name="message" required class="w-full min-h-[150px] px-4 py-3 rounded-xl border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans" placeholder="How can we help?"></textarea>
                 </div>
                 <button type="submit" class="w-full bg-foreground text-background py-4 rounded-xl font-medium hover:bg-foreground/90 transition-colors">
                     Send Message
                 </button>
             </form>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const form = document.getElementById('contact-form');
+                    const successMsg = document.getElementById('form-success-message');
+                    
+                    const urlParams = new URLSearchParams(window.location.search);
+                    if (urlParams.get('success') === 'true') {
+                        if (form) form.style.display = 'none';
+                        if (successMsg) {
+                            successMsg.classList.remove('hidden');
+                            successMsg.classList.add('flex');
+                        }
+                        window.history.replaceState({}, document.title, window.location.pathname);
+                    }
+                });
+            </script>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-border mt-10">
+    <footer class="bg-[#fffbf7]/95 border-t border-border mt-10 backdrop-blur-sm">
         <div class="container mx-auto px-4 py-12 md:py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">

@@ -6,8 +6,16 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #fdfbf7; /* Cream */
-  color: #332b26; /* Dark brown/gray */
+  background-color: #fff7f0;
+  color: #2d2420;
+  background-image: linear-gradient(
+    180deg,
+    #fff9f4 0%,
+    #fff0e5 26%,
+    #f8f0ea 52%,
+    #eef5f0 100%
+  );
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6, .font-serif {
@@ -19,14 +27,14 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #fdfbf7;
+  background: #fff5eb;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d8c8c4;
+  background: #d4a896;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c2ada8;
+  background: #c86f5f;
 }
 
 /* Masonry Grid (CSS Only) */
@@ -64,4 +72,35 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* Visual-first card polish */
+.card-lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(200, 111, 95, 0.14);
+}
+
+.home-layout section,
+.blog-layout {
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 768px) {
+  .home-layout section {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Warm section band — matches living / bedroom photography */
+.section-warm {
+  background: linear-gradient(
+    135deg,
+    #ffe8dc 0%,
+    #f8efe6 42%,
+    #e3efe5 100%
+  );
 }

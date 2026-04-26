@@ -20,14 +20,14 @@
             theme: {
                 extend: {
                     colors: {
-                        background: '#fdfbf7',
-                        foreground: '#332b26',
-                        primary: '#b8867c',
-                        primaryFg: '#fdfbf7',
-                        secondary: '#8a9a86',
-                        muted: '#eadecd',
-                        mutedFg: '#857a70',
-                        border: '#e8ded5',
+                        background: '#fff7f0',
+                        foreground: '#2d2420',
+                        primary: '#c86f5f',
+                        primaryFg: '#fffaf7',
+                        secondary: '#6d9b7c',
+                        muted: '#f4e4d8',
+                        mutedFg: '#6a5349',
+                        border: '#e4cbb9',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -74,15 +74,15 @@
     </header>
 
     <main class="flex-grow">
-        <div class="container mx-auto px-4 py-16 md:py-24 fade-in-up">
+        <div class="container mx-auto px-4 py-16 md:py-24 blog-layout fade-in-up">
             <!-- Header -->
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">Inspiration Board</h1>
-                <p class="text-mutedFg text-lg">Curated ideas, styling tips, and interior inspiration to help you live the soft life.</p>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">Inspiration Board</h1>
+                <p class="text-mutedFg text-lg md:text-xl leading-relaxed">Curated ideas, styling tips, and visual-first inspiration designed for Pinterest-friendly discovery.</p>
             </div>
 
             <!-- Categories Pill Nav -->
-            <div class="flex overflow-x-auto pb-6 mb-12 hide-scrollbar justify-start md:justify-center gap-3 fade-in-up transition-all delay-100">
+            <div class="flex overflow-x-auto pb-6 mb-14 hide-scrollbar justify-start md:justify-center gap-3 fade-in-up transition-all delay-100">
                 <button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-secondary text-white font-medium border border-transparent text-sm">All</button>
                 <button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white hover:bg-muted text-foreground font-medium transition-colors border border-border/50 text-sm">Aesthetic Room Ideas</button>
                 <button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white hover:bg-muted text-foreground font-medium transition-colors border border-border/50 text-sm">Home Decor Finds</button>
@@ -90,12 +90,12 @@
             </div>
 
             <!-- Masonry Grid -->
-            <div id="dynamic-blog-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"></div>
+            <div id="dynamic-blog-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-7 space-y-7"></div>
         </div>
     </main>
 
      <!-- Footer -->
-    <footer class="bg-white border-t border-border mt-10">
+    <footer class="bg-[#fffbf7]/95 border-t border-border mt-10 backdrop-blur-sm">
         <div class="container mx-auto px-4 py-12 md:py-16">
             <div class="border-t border-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-mutedFg gap-4 text-center md:text-left">
                 <p>&copy; 2026 Soft Life Studio. All rights reserved.</p>

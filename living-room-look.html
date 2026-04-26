@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Luxury Living Room | Shop This Look</title>
+    <meta name="description" content="Recreate this soft luxury living room aesthetic with our curated pieces and Amazon finds." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#fff7f0',
+                        foreground: '#2d2420',
+                        primary: '#c86f5f',
+                        primaryFg: '#fffaf7',
+                        secondary: '#6d9b7c',
+                        muted: '#f4e4d8',
+                        mutedFg: '#6a5349',
+                        border: '#e4cbb9',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground min-h-screen flex flex-col antialiased">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-md">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold tracking-tight text-foreground">Soft Life Studio</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">Home</a>
+                <a href="blog.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">Inspiration</a>
+                <a href="finds.html" class="text-sm font-medium transition-colors text-primary">Curated Finds</a>
+                <a href="about.html" class="text-sm font-medium transition-colors text-mutedFg hover:text-primary">About</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" class="text-mutedFg hover:text-primary transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </a>
+                <button class="bg-primary text-primaryFg px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+                    Subscribe
+                </button>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-foreground p-2">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow pb-24">
+        <!-- Hero Section -->
+        <section class="container mx-auto px-4 py-8 fade-in-up">
+            <div class="relative w-full h-[60vh] min-h-[450px] rounded-2xl overflow-hidden group shadow-md text-center flex flex-col items-center justify-center">
+                <div class="absolute inset-0 bg-black/30 z-10 pointer-events-none transition-opacity duration-300 group-hover:bg-black/40"></div>
+                <!-- Hero image -->
+                <img src="./images/shop-this-look.png" alt="Soft Luxury Living Room Setup" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager">
+                
+                <!-- Content over hero -->
+                <div class="relative z-20 px-4 max-w-3xl mx-auto flex flex-col items-center">
+                    <span class="uppercase tracking-widest text-xs font-semibold text-white/80 mb-4 block">Shop This Look</span>
+                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-md">
+                        Soft Luxury Living Room
+                    </h1>
+                    <p class="text-lg md:text-xl text-white/90 drop-shadow mb-10 max-w-xl mx-auto font-light">
+                        Recreate this aesthetic space with these curated pieces. Perfect for embracing the slow, soft life.
+                    </p>
+                    
+                    <!-- Dynamic scroll to grid -->
+                    <a href="#shop-grid" class="bg-white/95 text-foreground px-8 py-4 rounded-full font-medium hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center gap-3 transform hover:-translate-y-1">
+                        Shop This Room
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section id="shop-grid" class="container mx-auto px-4 pt-16 snap-m">
+            <h2 class="font-serif text-3xl font-bold mb-10 text-center">Curated Pieces Collection</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                
+                <!-- Card 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/40 group flex flex-col items-center text-center">
+                    <div class="relative w-full aspect-square overflow-hidden bg-muted">
+                        <img src="./images/curve-sofa.png" alt="Aesthetic Bouclé Curved Sofa" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 md:p-6 flex flex-col flex-grow w-full">
+                        <h3 class="font-medium text-base md:text-lg text-foreground mb-4 flex-grow">Aesthetic Bouclé Curved Sofa</h3>
+                        <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" class="w-full bg-primary/10 text-primary border border-primary/20 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                            Shop This Piece &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/40 group flex flex-col items-center text-center">
+                    <div class="relative w-full aspect-square overflow-hidden bg-muted">
+                        <img src="./images/living-room.png" alt="Minimalist Oak Coffee Table" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 md:p-6 flex flex-col flex-grow w-full">
+                        <h3 class="font-medium text-base md:text-lg text-foreground mb-4 flex-grow">Minimalist Oak Coffee Table</h3>
+                        <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" class="w-full bg-primary/10 text-primary border border-primary/20 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                            Shop This Piece &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/40 group flex flex-col items-center text-center">
+                    <div class="relative w-full aspect-square overflow-hidden bg-muted">
+                        <img src="./images/hero_lifestyle.png" alt="Earthy Textured Area Rug" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 md:p-6 flex flex-col flex-grow w-full">
+                        <h3 class="font-medium text-base md:text-lg text-foreground mb-4 flex-grow">Earthy Textured Area Rug</h3>
+                        <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" class="w-full bg-primary/10 text-primary border border-primary/20 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                            Shop This Piece &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/40 group flex flex-col items-center text-center">
+                    <div class="relative w-full aspect-square overflow-hidden bg-muted">
+                        <img src="./images/bedroom.jpg" alt="Neutral Throw Pillows Set" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 md:p-6 flex flex-col flex-grow w-full">
+                        <h3 class="font-medium text-base md:text-lg text-foreground mb-4 flex-grow">Neutral Throw Pillows Set</h3>
+                        <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" class="w-full bg-primary/10 text-primary border border-primary/20 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                            Shop This Piece &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/40 group flex flex-col items-center text-center">
+                    <div class="relative w-full aspect-square overflow-hidden bg-muted">
+                        <img src="./images/desk_setup.png" alt="Matte Ceramic Decorative Vase" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 md:p-6 flex flex-col flex-grow w-full">
+                        <h3 class="font-medium text-base md:text-lg text-foreground mb-4 flex-grow">Matte Ceramic Decorative Vase</h3>
+                        <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" class="w-full bg-primary/10 text-primary border border-primary/20 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                            Shop This Piece &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/40 group flex flex-col items-center text-center">
+                    <div class="relative w-full aspect-square overflow-hidden bg-muted">
+                        <img src="./images/aesthetic_bedroom.png" alt="Warm Ambient Floor Lamp" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 md:p-6 flex flex-col flex-grow w-full">
+                        <h3 class="font-medium text-base md:text-lg text-foreground mb-4 flex-grow">Warm Ambient Floor Lamp</h3>
+                        <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" class="w-full bg-primary/10 text-primary border border-primary/20 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                            Shop This Piece &rarr;
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#fffbf7]/95 border-t border-border mt-10 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-12 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="inline-block mb-4">
+                        <span class="font-serif text-2xl font-bold text-foreground">Soft Life Studio</span>
+                    </a>
+                    <p class="text-mutedFg max-w-sm mb-6">
+                        Curating beautiful spaces and effortless style for the modern soft girl era. Find inspiration for your home, lifestyle, and aesthetic living.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-foreground mb-4">Categories</h4>
+                    <ul class="space-y-3">
+                        <li><a href="finds.html" class="text-mutedFg hover:text-primary transition-colors">Cozy Bedroom</a></li>
+                        <li><a href="living-room-look.html" class="text-mutedFg hover:text-primary transition-colors">Living Room Ideas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-foreground mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-mutedFg hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-mutedFg hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-mutedFg gap-4 text-center md:text-left">
+                <p>&copy; 2026 Soft Life Studio. All rights reserved.</p>
+                <p class="max-w-xl">
+                    <strong>Affiliate Disclosure:</strong> Soft Life Studio is a participant in various affiliate advertising programs. We may earn a commission on qualifying purchases made through our links.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

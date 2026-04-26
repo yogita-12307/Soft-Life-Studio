@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="p:domain_verify" content="49b9998ff69da3eed580df573555dcf0"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soft Life Studio - Curating Beautiful Spaces</title>
     <meta name="description" content="Soft Life Studio - Curating beautiful spaces, aesthetic lifestyle inspiration, and effortless home decor." />
-    <meta name="keywords" content="soft lifestyle, aesthetic decor, minimal living, pinterest room ideas, home decor, lifestyle blog" />
+    <link rel="canonical" href="https://YOUR-DOMAIN-HERE/index.html" />
+    <meta property="og:title" content="Soft Life Studio - Curating Beautiful Spaces" />
+    <meta property="og:description" content="Soft Life Studio - Curating beautiful spaces, aesthetic lifestyle inspiration, and effortless home decor." />
+    <meta property="og:image" content="./images/living-room.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://YOUR-DOMAIN-HERE/index.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Soft Life Studio - Curating Beautiful Spaces" />
+    <meta name="twitter:description" content="Soft Life Studio - Curating beautiful spaces, aesthetic lifestyle inspiration, and effortless home decor." />
+    <meta name="twitter:image" content="./images/living-room.png" />
     <meta name="google-site-verification" content="your_verification_string_here" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -15,30 +23,22 @@
       gtag('js', new Date());
       gtag('config', 'G-XXXXXXXXXX');
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: '#fdfbf7',
-                        foreground: '#332b26',
-                        primary: '#b8867c', // Blush
-                        primaryFg: '#fdfbf7',
-                        secondary: '#8a9a86', // Sage
-                        muted: '#eadecd', // Beige
-                        mutedFg: '#857a70',
-                        border: '#e8ded5',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="tailwind.css">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Soft Life Studio",
+        "url": "https://YOUR-DOMAIN-HERE/",
+        "description": "Curating beautiful spaces, aesthetic lifestyle inspiration, and effortless home decor.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Soft Life Studio",
+          "url": "https://YOUR-DOMAIN-HERE/"
+        }
+      }
+    </script>
 </head>
 <body class="bg-background text-foreground min-h-screen flex flex-col antialiased">
 
@@ -58,7 +58,7 @@
             </nav>
 
             <div class="hidden md:flex items-center gap-4">
-                <a href="#" class="text-mutedFg hover:text-primary transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" class="text-mutedFg hover:text-primary transition-colors">
                     <svg xmlns="http://www.w3.org/Dom/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 </a>
                 <button class="bg-primary text-primaryFg px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
@@ -84,11 +84,11 @@
         </div>
     </header>
 
-    <main class="flex-grow">
+    <main class="flex-grow home-layout">
         <!-- Hero Section -->
         <section class="relative h-[85vh] min-h-[600px] w-full mt-4 container mx-auto rounded-[2rem] overflow-hidden fade-in-up">
-            <div class="absolute inset-0 bg-black/20 z-10"></div>
-            <img src="./images/hero_lifestyle_1773683461197.png" alt="Luxury modern living room" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <img src="./images/living-room.png" alt="Luxury modern living room" loading="eager" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover">
             
             <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
                 <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white max-w-4xl tracking-tight leading-tight uppercase relative fade-in-up transition-all delay-100">
@@ -121,15 +121,30 @@
             </div>
 
             <div id="dynamic-trending-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <p class="text-xs text-mutedFg mt-8 text-center max-w-xl mx-auto">Soft Life Studio may earn a commission from purchases made through affiliate links on this site.</p>
+        </section>
+
+        <!-- Featured Space Section -->
+        <section class="container mx-auto px-4 py-8 fade-in-up">
+            <div class="relative w-full h-[60vh] min-h-[500px] rounded-[2rem] overflow-hidden group">
+                <div class="absolute inset-0 bg-black/20 z-10 transition-opacity duration-300 group-hover:bg-black/30"></div>
+                <img src="./images/shop-this-look.png" alt="Aesthetic lifestyle inspiration" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-md">Curate Your Sanctuary</h2>
+                    <a href="living-room-look.html" class="bg-white/95 text-foreground px-8 py-4 rounded-full font-medium hover:bg-white transition-colors shadow-lg">
+                        Shop The Look
+                    </a>
+                </div>
+            </div>
         </section>
 
         <!-- Feature Split Section -->
-        <section class="bg-[#f4efe8] py-24 fade-in-up">
+        <section class="section-warm py-24 fade-in-up">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="order-2 lg:order-1 flex flex-col gap-6">
                         <h2 class="font-serif text-4xl lg:text-5xl font-bold leading-tight">Cozy Bedroom Essentials</h2>
-                        <p class="text-lg text-mutedFg leading-relaxed">
+                        <p class="text-lg text-mutedFg leading-relaxed max-w-xl">
                             Transform your sleeping space into a serene sanctuary. Discover our curated selection of warm beige and cream bedding, atmospheric lighting, and soft blush accents designed to help you embrace the soft life.
                         </p>
                         <ul class="space-y-4 my-4">
@@ -146,27 +161,32 @@
                                 <span class="text-foreground">Soft mood lighting for winding down</span>
                             </li>
                         </ul>
-                        <a href="article.html" class="w-max bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-foreground/90 transition-colors mt-4">
+                        <a href="best-amazon-bedroom-finds.html" class="w-max bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-foreground/90 transition-colors mt-4">
                             Read The Guide
                         </a>
                     </div>
-                    <div class="order-1 lg:order-2">
-                        <img src="./images/aesthetic_bedroom_1773683476544.png" alt="Cozy aesthetic bedroom" loading="lazy" class="rounded-3xl shadow-2xl w-full">
-                    </div>
+                    <a href="bedroom-look.html" class="order-1 lg:order-2 group relative overflow-hidden rounded-3xl shadow-2xl block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="View neutral bedroom styling article">
+                        <img src="./images/bedroom.jpg" alt="Cozy aesthetic bedroom" loading="lazy" class="w-full transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <span class="absolute bottom-5 left-5 bg-white/90 text-foreground text-sm font-semibold px-4 py-2 rounded-full opacity-90 group-hover:opacity-100 transition-opacity">
+                            View More
+                        </span>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Latest Blog Posts -->
         <section class="container mx-auto px-4 py-24 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold mb-12 text-center">Pinterest Inspired Spaces</h2>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4 text-center">Pinterest Inspired Spaces</h2>
+            <p class="text-mutedFg text-base md:text-lg text-center max-w-2xl mx-auto mb-12">Tap into visual-first ideas designed to convert inspiration into action.</p>
             
             <div id="dynamic-latest-posts-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-border mt-10">
+    <footer class="bg-[#fffbf7]/95 border-t border-border mt-10 backdrop-blur-sm">
         <div class="container mx-auto px-4 py-12 md:py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">

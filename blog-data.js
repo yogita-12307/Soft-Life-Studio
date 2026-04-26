@@ -4,7 +4,7 @@ const products = [
     title: 'Minimalist Ceramic Vase Set',
     price: '$45.00',
     category: 'Decor',
-    image: './images/hero_lifestyle_1773683461197.png',
+    image: './images/hero_lifestyle.png',
     link: 'https://example.com/affiliate/vase',
     isAffiliate: true
   },
@@ -13,7 +13,7 @@ const products = [
     title: 'Cozy Boucle Accent Chair',
     price: '$299.00',
     category: 'Furniture',
-    image: './images/aesthetic_bedroom_1773683476544.png',
+    image: './images/aesthetic_bedroom.png',
     link: 'https://example.com/affiliate/chair',
     isAffiliate: true
   },
@@ -22,7 +22,7 @@ const products = [
     title: 'Organic Cotton Ribbed Throw',
     price: '$55.00',
     category: 'Textiles',
-    image: './images/hero_lifestyle_1773683461197.png',
+    image: './images/hero_lifestyle.png',
     link: 'https://example.com/affiliate/throw',
     isAffiliate: true
   },
@@ -31,7 +31,7 @@ const products = [
     title: 'Warm Brass Table Lamp',
     price: '$89.00',
     category: 'Lighting',
-    image: './images/desk_setup_1773683492574.png',
+    image: './images/desk_setup.png',
     link: 'https://example.com/affiliate/lamp',
     isAffiliate: true
   },
@@ -40,7 +40,7 @@ const products = [
     title: 'Linen Duvet Cover Set in Oat',
     price: '$120.00',
     category: 'Bedding',
-    image: './images/aesthetic_bedroom_1773683476544.png',
+    image: './images/bedroom.jpg',
     link: 'https://example.com/affiliate/bedding',
     isAffiliate: true
   },
@@ -49,8 +49,35 @@ const products = [
     title: 'Wabi-Sabi Desktop Organizer',
     price: '$35.00',
     category: 'Organization',
-    image: './images/desk_setup_1773683492574.png',
+    image: './images/desk_setup.png',
     link: 'https://example.com/affiliate/organizer',
+    isAffiliate: true
+  },
+  {
+    id: 101,
+    title: 'Cloud Boucle Sofa',
+    price: '$899.00',
+    category: 'Furniture',
+    image: './images/living-room.png',
+    link: 'https://www.amazon.com/dp/B08XABCD12?tag=softlifestudio-20',
+    isAffiliate: true
+  },
+  {
+    id: 102,
+    title: 'Modern Arch Floor Lamp',
+    price: '$149.00',
+    category: 'Lighting',
+    image: './images/living-room.png',
+    link: 'https://www.amazon.com/dp/B08XABCD13?tag=softlifestudio-20',
+    isAffiliate: true
+  },
+  {
+    id: 103,
+    title: 'Abstract Ceramic Decor Vase',
+    price: '$45.00',
+    category: 'Decor',
+    image: './images/living-room.png',
+    link: 'https://www.amazon.com/dp/B08XABCD14?tag=softlifestudio-20',
     isAffiliate: true
   }
 ];
@@ -59,7 +86,7 @@ const posts = [
   {
     slug: 'neutral-bedroom-styling-drops',
     title: 'Neutral Bedroom Styling Drops',
-    image: './images/aesthetic_bedroom_1773683476544.png',
+    image: './images/bedroom.jpg',
     category: 'Aesthetic Room Ideas',
     date: 'March 16, 2026',
     author: { name: 'Soft Life Studio', role: 'Editor', avatarInitials: 'SL' },
@@ -77,7 +104,7 @@ const posts = [
   {
     slug: 'ultimate-soft-minimal-living',
     title: 'The Ultimate Soft Minimal Living Room',
-    image: './images/hero_lifestyle_1773683461197.png',
+    image: './images/hero_lifestyle.png',
     category: 'Home Decor Finds',
     date: 'March 14, 2026',
     author: { name: 'Soft Life Studio', role: 'Editor', avatarInitials: 'SL' },
@@ -94,7 +121,7 @@ const posts = [
   {
     slug: 'aesthetic-minimal-desk',
     title: 'Aesthetic Minimal Desk Setup',
-    image: './images/desk_setup_1773683492574.png',
+    image: './images/desk_setup.png',
     category: 'Soft Lifestyle Inspiration',
     date: 'March 10, 2026',
     author: { name: 'Soft Life Studio', role: 'Editor', avatarInitials: 'SL' },
@@ -110,7 +137,7 @@ const posts = [
   {
     slug: 'warm-lighting-cozy-nights',
     title: 'Warm Lighting for Cozy Nights',
-    image: './images/aesthetic_bedroom_1773683476544.png',
+    image: './images/aesthetic_bedroom.png',
     category: 'Cozy Living Tips',
     date: 'March 05, 2026',
     author: { name: 'Soft Life Studio', role: 'Editor', avatarInitials: 'SL' },
@@ -124,7 +151,7 @@ const posts = [
   {
     slug: 'building-productivity-corner',
     title: 'Building a Productivity Corner',
-    image: './images/desk_setup_1773683492574.png',
+    image: './images/desk_setup.png',
     category: 'Aesthetic Room Ideas',
     date: 'February 28, 2026',
     author: { name: 'Soft Life Studio', role: 'Editor', avatarInitials: 'SL' },
@@ -134,6 +161,17 @@ const posts = [
     ],
     relatedProductIds: ['wabi-sabi-organizer', 'boucle-accent-chair'],
     relatedPostSlugs: ['aesthetic-minimal-desk']
+  },
+  {
+    slug: 'shop-the-look-living-room',
+    title: 'Shop This Look - Living Room',
+    image: './images/Shop this look.png',
+    category: 'Shop The Look',
+    date: 'March 30, 2026',
+    author: { name: 'Soft Life Studio', role: 'Editor', avatarInitials: 'SL' },
+    content: [],
+    relatedProductIds: [101, 102, 103],
+    relatedPostSlugs: ['ultimate-soft-minimal-living', 'neutral-bedroom-styling-drops']
   }
 ];
 
